@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/slider.css">
+    <link rel="stylesheet" href="/css/footer.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/js/all.min.js"></script>
+
+    <section id="home" class="home-container">
+        <header id="header" class="header">
+            <a href="{{ url_for('index') }}"><img src="/images/illustration/trice.png" alt="Dino Logo" class="logo"></a>
+            <ul class="nav-links">
+                <li>
+                    <a href="{{ url_for('index') }}" data-text="Accueil">Accueil</a>
+                </li>
+                <li>
+                    <a href="{{ url_for('gestion_utilisateurs') }}" data-text="Utilisateurs">Utilisateurs</a>
+                </li>
+                <li>
+                    <a href="{{ url_for('admin') }}" data-text="Admin">Admin</a>
+                </li>
+            </ul>
+
+  <input type="search" id="search" value="">
+  <input type="button" id="button" class="search" onclick="ouvrirPage()" value="Chercher un article">
+  <script>
+    function ouvrirPage() {
+        var a = document.getElementById("search").value;
+            console.log(a);
+            window.location.replace("/articles_trier/" + a);
+    }
+
+    </script>
+    <div class="burger-container">
+        <div class="burger"></div>
+    </div>
+</header>
+<div class="landing">
+    <h1 class="big-title">Article & Cie, La Science est à vous !</h1>
+    <a href="#delivery" class="delivery-link">
+        <span class="scroll-text" data-text="Scroll">Scroll</span>
+        <i class="scroll-icon fas fa-angle-down"></i>
+    </a>
+</div>
+</section>
+<section id="delivery" class="text-acceuil">
+    <p> Bienvenue sur notre plateforme dédiée à la diffusion d'articles scientifiques! Ici, vous trouverez une multitude de recherches passionnantes publiées
+         par des scientifiques du monde entier. Que vous soyez un chercheur chevronné, un étudiant curieux ou simplement quelqu'un qui s'intéresse à la science,
+          notre site est l'endroit idéal pour explorer des sujets variés, des découvertes récentes aux théories novatrices.</p>
+    <img src="/images/illustration/journal.png" alt="Logo Journal">
+    
+ </section>
+ 
+<section class="product"> 
+ <h2 class="product-category">Dernières publications</h2>
+ <button class="pre-btn"><img src="/images/illustration/arrow.png" alt=""></button>
+ <button class="nxt-btn"><img src="/images/illustration/arrow.png" alt=""></button>
+ <div class="product-container">
+    {% for article in articles %}
+     <div class="product-card">
+         <div class="product-image">
+        <p>{{ article['contenu'] }}</p>
+             <a href="{{ url_for('afficher_article', id=article.id) }}"><button class="card-btn" method='POST'>Voir l'article</button></a>
+         </div>
+         <div class="product-info">
+             <h2 class="product-brand">{{ article['titre'] }}</h2>
+             <p class="product-short-description">{{ article['contenu'] }}</p>
+             <p>Auteur : {{ article['auteur'] }}</p>
+                <p>Date de publication : {{ article['date_publication'] }}</p>
+
+         </div>
+     </div>
+     {% endfor %}
+    
+ </div>
+
+
+ 
+<div class="swiper-button-next swiper-navBtn"></div>
+<div class="swiper-button-prev swiper-navBtn"></div>
+<div class="swiper-pagination"></div>
+</div>
+</section>
+
+<div style="height: 150px; display: block;"></div>
+<script src="/js/slider.js"></script>
+
+  
+
+<section class="bande">
+    <img src="/images/illustration/landscape.jpg" alt="">
+ </section>
+
+<footer class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="footer-col">
+                <h4>Liens Utiles</h4>
+                <ul>
+                    <li><a href="{{ url_for('gestion_utilisateurs') }}">Trouver un utilisateur</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Information</h4>
+                <ul>
+                    <li><a href="#">À propos</a></li>
+                    <li><a href="#">Contact</a></li>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Politique Confidentialité</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Nous contacter</h4>
+                <ul>
+                    <li><a href="#">Propriétaire Guada</a></li>
+                    <li><a href="#">Disponibilité</a></li>
+                    <li><a href="#">Magasins</a></li>
+                    <li><a href="#">Bureaux</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Médias Sociaux</h4>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+</body>
+
+</html>
+

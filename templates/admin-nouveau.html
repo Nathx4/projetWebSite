@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+ <html lang="en">
+ <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/indiv.css">
+    <link rel="stylesheet" href="/css/footer.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/js/all.min.js"></script>
+ </head>
+ <body>
+   
+   <div class="nav-head"></div>
+   
+   <section id="home" class="home-container">
+      <header id="header" class="header">
+        <a href="{{ url_for('index') }}"><img src="/images/illustration/trice.png" alt="Dino Logo" class="logo"></a>
+        <ul class="nav-links">
+            <li>
+                <a href="{{ url_for('index') }}" data-text="Accueil">Accueil</a>
+            </li>
+            <li>
+                <a href="{{ url_for('gestion_utilisateurs') }}" data-text="Utilisateurs">Utilisateurs</a>
+            </li>
+            <li>
+                <a href="{{ url_for('admin') }}" data-text="Admin">Admin</a>
+            </li>
+        </ul>
+          <div class="burger-container">
+              <div class="burger"></div>
+          </div>
+      </header>
+    
+  </section>
+  
+  
+<script>
+  // Ajoutez un écouteur d'événements pour détecter la soumission du formulaire
+  document.getElementById('nouvel_article').addEventListener('submit', function(event) {
+      // Empêcher la soumission par défaut du formulaire
+      event.preventDefault();
+      
+      // Mettre à jour le champ de date de publication avec la date et l'heure actuelles
+      var maintenant = new Date();
+      var dateActuelle = maintenant.toISOString().slice(0, 16);
+      document.getElementById('date_publication').value = dateActuelle;
+      
+      // Soumettre le formulaire manuellement
+      this.submit();
+  });
+</script>
+
+
+      <h1>Créer un nouvel article</h1>
+  <form method="POST" id="nouvel_article">
+      <div>
+          <label for="titre">Titre :</label><br>
+          <input type="text" id="titre" name="titre" required><br>
+          <!-- Afficher les erreurs de validation du titre si nécessaire -->
+          {% if erreurs and 'titre' in erreurs %}
+              <p>{{ erreurs['titre'] }}</p>
+          {% endif %}
+      </div>
+      <div>
+          <label for="auteur">Auteur :</label><br>
+          <input type="text" id="auteur" name="auteur" required><br>
+          <!-- Afficher les erreurs de validation de l'auteur si nécessaire -->
+          {% if erreurs and 'auteur' in erreurs %}
+              <p>{{ erreurs['auteur'] }}</p>
+          {% endif %}
+      </div>
+      <div>
+          <label for="date_publication">Date de publication :</label><br>
+          <input type="datetime-local" id="date_publication" name="date_publication" readonly required><br>
+          <!-- Afficher les erreurs de validation de la date de publication si nécessaire -->
+          {% if erreurs and 'date_publication' in erreurs %}
+              <p>{{ erreurs['date_publication'] }}</p>
+          {% endif %}
+      </div>
+     
+              
+      <div>
+          <label for="contenu">Contenu :</label><br>
+          <textarea id="contenu" name="contenu" rows="6" required></textarea><br>
+          <!-- Afficher les erreurs de validation du contenu si nécessaire -->
+          {% if erreurs and 'contenu' in erreurs %}
+              <p>{{ erreurs['contenu'] }}</p>
+          {% endif %}
+      </div>
+      <div>
+          <input type="submit" value="Créer">
+      </div>
+</form>
+
+  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+    <hr>
+    {%  %}
+    <div class="col">
+      <div class="card shadow-sm">
+        <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">{{article.contenu}}</text></svg>
+        <div class="card-body">
+          <p class="card-text">{{article.titre}}</p>
+          <div class="d-flex justify-content-between align-items-center">
+            <div class="btn-group">
+              <!-- <button type="button" class="btn btn-sm btn-outline-secondary">Modifier</button>-->
+            </div>
+            <small class="text-body-secondary">{{article.date_publication}}</small>
+            <small class="text-body-secondary">{{article.auteur}}</small>
+          </div>
+        </div>
+      </div>
+    </div>
+    <h1>Modifier l'article</h1>
+    <form method="POST">
+        <label for="nouveau_titre">Nouveau titre :</label><br>
+        <input type="text" id="nouveau_titre" name="nouveau_titre" value="{{ article.titre }}"><br>
+        
+        <label for="nouveau_contenu">Nouveau contenu :</label><br>
+        <textarea id="nouveau_contenu" name="nouveau_contenu" rows="4" cols="50">{{ article.contenu }}</textarea><br>
+        
+        <input type="submit" value="Modifier">
+    </form>
+    </div>
+  </div>
+   
+   <div style="height: 150px; display: block; background-color: #f2f2f2;"></div>
+
+   <footer class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="footer-col">
+                <h4>Liens Utiles</h4>
+                <ul>
+                    <li><a href="{{ url_for('gestion_utilisateurs') }}">Trouver un animal</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Information</h4>
+                <ul>
+                    <li><a href="#">À propos</a></li>
+                    <li><a href="#">Contact</a></li>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Politique Confidentialité</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Nous contacter</h4>
+                <ul>
+                    <li><a href="#">Propriétaire Guada</a></li>
+                    <li><a href="#">Disponibilité</a></li>
+                    <li><a href="#">Magasins</a></li>
+                    <li><a href="#">Bureaux</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Médias Sociaux</h4>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+   
+ </body>
+ </html>
+  

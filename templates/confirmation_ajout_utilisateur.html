@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+ <html lang="en">
+ <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/indiv.css">
+    <link rel="stylesheet" href="/css/footer.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/js/all.min.js"></script>
+ </head>
+ <body>
+   
+   <div class="nav-head"></div>
+   
+   <section id="home" class="home-container">
+      <header id="header" class="header">
+        <a href="{{ url_for('index') }}"><img src="/images/illustration/trice.png" alt="Dino Logo" class="logo"></a>
+        <ul class="nav-links">
+            <li>
+                <a href="{{ url_for('index') }}" data-text="Accueil">Accueil</a>
+            </li>
+            <li>
+                <a href="{{ url_for('gestion_utilisateurs') }}" data-text="Utilisateurs">Utilisateurs</a>
+            </li>
+            <li>
+                <a href="{{ url_for('admin') }}" data-text="Admin">Admin</a>
+            </li>
+        </ul>
+          <div class="burger-container">
+              <div class="burger"></div>
+          </div>
+      </header>
+    
+  </section>
+  
+  {% if nom_utilisateur %}
+  Bienvenu {{ nom_utilisateur }}!
+  <br>
+  Vous vous êtes inscrit avec succès
+{% endif %}
+   
+   <div style="height: 150px; display: block; background-color: #f2f2f2;"></div>
+
+   <footer class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="footer-col">
+                <h4>Liens Utiles</h4>
+                <ul>
+                    <li><a href="{{ url_for('gestion_utilisateurs') }}">Trouver un animal</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Information</h4>
+                <ul>
+                    <li><a href="#">À propos</a></li>
+                    <li><a href="#">Contact</a></li>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Politique Confidentialité</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Nous contacter</h4>
+                <ul>
+                    <li><a href="#">Propriétaire Guada</a></li>
+                    <li><a href="#">Disponibilité</a></li>
+                    <li><a href="#">Magasins</a></li>
+                    <li><a href="#">Bureaux</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Médias Sociaux</h4>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+   
+ </body>
+ </html>
+  

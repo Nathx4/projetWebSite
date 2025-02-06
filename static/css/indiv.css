@@ -1,0 +1,214 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    font-family: "Poppins", sans-serif;
+}
+
+.home-container {
+    min-height: 20vh;
+    background-color: #d6b073;
+}
+
+.header {
+    position: absolute;
+    width: 100%;
+    height: 150px;
+    display: flex;
+    align-items: center;
+    padding: 0 50px;
+}
+
+.logo {
+    width: 210px;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+}
+
+.nav-links li {
+    margin: 40px;
+    overflow: hidden;
+}
+
+.nav-links a {
+    font-size: 18px;
+    text-decoration: none;
+    color: #4b3311;
+    position: relative;
+    display: block;
+    transition: transform 0.4s;
+}
+
+.nav-links a::before {
+    content: attr(data-text);
+    position: absolute;
+    top: 100%;
+}
+
+.nav-links a:hover {
+    transform: translateY(-100%);
+}
+
+.burger {
+    display: none;
+}
+
+.landing {
+    line-height: 80px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 100px;
+}
+
+.delivery-link {
+    line-height: 20px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    position: absolute;
+    bottom: 30px;
+    width: 70px;
+    justify-content: space-between;
+    overflow: hidden;
+}
+
+.nav-head{
+    display: block;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 150px;
+    background-color: #FDEBD0;
+}
+
+.nav-head-2{
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 20px;
+   
+    background-color: #a47a37;
+}
+
+/*******CARD********/
+
+   .main{
+    margin: 2%;
+   }
+
+ .card{
+    background-color: #d6b073;
+    max-width: 32%;
+    display: inline-block;
+    box-shadow: 2px 2px 20px orange;
+    border-radius: 5px; 
+    margin: 2%;
+    margin-left: 200px;
+    width: 100%;
+    }
+
+     
+   .image img{
+     max-width: 100%;
+     
+     width: 100%;
+     height: 500px;
+    }
+   
+   .title{
+     text-align: center;
+     padding: 9px;
+      background-color: #d6b073;
+    }
+   
+   h1{
+     color: rgb(38, 37, 37);
+    }
+   
+   .esp {
+     padding: 3px;
+     text-align: center;
+    
+     padding-top: 10px;
+     border-bottom-right-radius: 5px;
+     border-bottom-left-radius: 5px;
+     color: #DAA808;
+   }
+
+   .des {
+    display: flex;
+    justify-content: center;
+    padding: 0 22px 22px 22px;
+    padding: 3px;
+     padding-top: 10px;
+     border-bottom-right-radius: 5px;
+     border-bottom-left-radius: 5px;
+     color: #808080;
+   }
+
+   .des img {
+    display: flex;
+    width: 20px;
+   }
+
+   .illu img {
+    width: 20px;
+   }
+
+   
+/****Formulaire****/
+   textarea {
+    width: 50%;
+    height: 100px;
+    min-width: 40%;
+    min-height: 100px;
+    max-width: 50%;
+}
+
+/****INFO***/
+.section-info{
+    display: flex;
+    min-height: 49vh;
+    background: #fff8f0;
+    padding: 0 50px;
+}
+
+.info{
+    margin-left: 200px;
+}
+
+.info p{
+    font-size: 20px;
+    font-family: "Poppins", sans-serif;
+}
+
+.info a{
+    font-family: "Poppins", sans-serif;
+    color: #6c560d;
+}
+.title h1{
+    font-family: "Poppins", sans-serif;
+}
+
+.section-title {
+    position: relative;
+    font-family: "Poppins", sans-serif;
+    font-size: 50px;
+    font-weight: 100;
+}
+
+.section-title::before {
+    content: "";
+    position: absolute;
+    width: 70vh;
+    height: 2px;
+    background: #DAA808;
+    bottom: 0;
+}
+

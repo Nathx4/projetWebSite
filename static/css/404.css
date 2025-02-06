@@ -1,0 +1,31 @@
+/****ERREUR 404****/
+.quatre {
+    text-align: center;
+ }
+
+ * {
+    background: url(/images/illustration/big-eyes.png);
+    background-size: cover;
+}
+
+ .quatre p{
+    font-size: 20vh;
+    font-weight: 600;
+    text-decoration: orange;
+    color: orange;
+ }
+ 
+
+ .quatre a{
+    justify-content: center;
+    font-size: larger;
+    text-decoration: orange;
+    color: orange;
+ }
+
+.txt{
+    
+    font-size: larger;
+    text-decoration: orange;
+    color: orange;
+ }

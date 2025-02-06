@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modifier l'utilisateur</title>
+</head>
+<body>
+    <h1>Modifier l'utilisateur {{ utilisateur }}</h1>
+    <form method="POST">
+        <label for="nouveau_nom">Nouveau nom :</label><br>
+        <input type="text" id="nouveau_nom" name="nouveau_nom" required><br>
+        
+        <label for="nouveau_prenom">Nouveau prénom :</label><br>
+        <input type="text" id="nouveau_prenom" name="nouveau_prenom" required><br>
+        
+        <label for="nouveau_courriel">Nouveau courriel :</label><br>
+        <input type="email" id="nouveau_courriel" name="nouveau_courriel" required><br>
+        
+        <label for="nouvelle_photo_profil">Nouvelle photo de profil :</label><br>
+        <input type="text" id="nouvelle_photo_profil" name="nouvelle_photo_profil"><br>
+        
+        <input type="submit" value="Modifier">
+    </form>
+</body>
+</html>
