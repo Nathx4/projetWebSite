@@ -6,8 +6,7 @@ A little web site including articles on Dinosaures. However the website is not d
 
 Before running the project, install the required dependencies by running the following command :
 
-```sh
-pip install -r requirements.txt
+``pip install -r requirements.txt``
 
 ## Run
 
